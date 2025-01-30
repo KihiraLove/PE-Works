@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4B00B3"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@drawable/eagle" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="nevjegyzekMutat"
+        android:shadowColor="#000000"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="10"
+        android:text="Névjegyzék"
+        android:textColor="#FFD600"
+        android:textSize="20sp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_baseline_contacts_24"
+        app:strokeColor="#FFD600"
+        app:strokeWidth="3dp" />
+
+    <EditText
+        android:id="@+id/nev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="szuresMutat"
+        android:shadowColor="#000000"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="10"
+        android:text="Szűrés"
+        android:textColor="#FFD600"
+        android:textSize="20sp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_baseline_person_search_24"
+        app:strokeColor="#FFD600"
+        app:strokeWidth="3dp" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="smsMutat"
+        android:shadowColor="#000000"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="10"
+        android:text="SMS"
+        android:textColor="#FFD600"
+        android:textSize="20sp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_baseline_sms_24"
+        app:strokeColor="#FFD600"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/simKartya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="#00B8D4"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+</LinearLayout>

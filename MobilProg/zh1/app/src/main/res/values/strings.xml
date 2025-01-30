@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">zh1</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Feladatok</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="feladatok">Feladatok</string>
+    <string name="empty"></string>
+    <string name="numinput">Szám:</string>
+    <string name="radio_paros">Páros</string>
+    <string name="radio_paratlan">Páratlan</string>
+    <string name="radio_5el">5-el osztható</string>
+    <string name="viszgal">Vizsgál</string>
+    <string name="negyzet">Négyzete:</string>
+</resources>

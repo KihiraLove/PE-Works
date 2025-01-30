@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c8c8c8"
+    tools:context=".relativActivity">
+
+    <TextView
+        android:id="@+id/felirat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#FFD600"
+        android:fontFamily="@font/architects_daughter"
+        android:text="Vezérlőelemek"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alapállapot"
+        android:textSize="20sp"
+        android:trackTint="#ffffff"
+        android:trackTintMode="add"
+        android:thumbTint="#802B97"
+        android:switchMinWidth="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/felirat" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#020202"
+        android:min="6"
+        android:max="50"
+        android:progress="20"
+        android:progressTint="#FF0000"
+        android:thumbTint="#FF0000"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/felirat"
+        />
+
+    <TextView
+        android:id="@+id/seekBarTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20sp"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/seekBar"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/mintaszoveg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mintaszöveg"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/seekBarTv"
+        android:layout_centerHorizontal="true"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/mintaszoveg"
+        android:layout_centerHorizontal="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kutya vagy macska?"
+            android:textSize="20sp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbKutya"
+            android:text="Kutya"
+            android:textSize="20sp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbMacska"
+            android:text="Macska"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/kepek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="Képek"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/datumBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/kepek"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:text="Dátum választása" />
+
+    <EditText
+        android:id="@+id/datumEt"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/datumBtn"
+        android:layout_toLeftOf="@+id/datumBtn" />
+
+    <ImageView
+        android:id="@+id/kep"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignTop="@id/rg1"
+        android:layout_marginEnd="5dp"
+        android:layout_toLeftOf="@id/rg1"
+        />
+
+</RelativeLayout>

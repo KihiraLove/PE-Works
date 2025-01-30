@@ -1,0 +1,72 @@
+    ArrayAdapter<String> adapter; //összekapcsolja a sztringlistát a listView-val
+    ArrayList<String> sztringlista;
+    ListView lista;
+    EditText elem;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lista);
+        elem = findViewById(R.id.elem);
+        lista = findViewById(R.id.lista);
+        sztringlista = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                sztringlista);
+        lista.setAdapter(adapter);
+        //sztringlista feltöltése
+        String[] gyumik = getResources().getStringArray(R.array.gyumolcsok);
+        for (int i=0; i< gyumik.length; i++){
+            sztringlista.add(gyumik[i]);
+        }
+
+        //kattintás a listaelemen - elem megjelenítése a beviteli mezőben
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                elem.setText(sztringlista.get(i));
+                //adapterView.getAdapter().getItem(i).toString();
+            }
+        });
+
+        //hosszú kattintás a listaelemen - elem törlése jóváhagyással
+        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                AlertDialog.Builder adb = new AlertDialog.Builder(listaActivity.this);
+                adb.setTitle("Biztos?");
+                adb.setIcon(android.R.drawable.ic_delete);
+                adb.setMessage("Valóban törlöd az elemet?");
+                adb.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int x) {
+                        sztringlista.remove(i);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                adb.setNegativeButton("Nem",null);
+                adb.show();
+                return false;
+            }
+        });
+    }
+
+    public void hozzaadas(View v){
+        sztringlista.add(elem.getText().toString());
+        elem.setText("");
+        adapter.notifyDataSetChanged();
+    }
+
+    public void torles(View v){//utolsó elem törlése
+        sztringlista.remove(sztringlista.size()-1);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void valasztottTorles(View v){//szövegmezőben megadott elem törlése
+        String valasztott = elem.getText().toString();
+        for (int i = 0; i < sztringlista.size(); i++){
+            if (sztringlista.get(i).equals(valasztott))
+                sztringlista.remove(i);
+        }
+        adapter.notifyDataSetChanged();
+    }

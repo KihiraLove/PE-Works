@@ -1,0 +1,67 @@
+//Szűrés gomb - MainActivity.java
+public void szuresMutat(View v){
+        Intent i = new Intent(MainActivity.this, kontaktokActivity.class);
+        i.putExtra("szures",nev.getText().toString());
+        startActivity(i);
+    }
+
+
+//kontaktokActivity.java
+String nev="";
+
+//onCreate()
+Bundle bundle = getIntent().getExtras();
+if (bundle != null)
+	nev = bundle.getString("szures");
+
+
+//Névjegyzékben lévő adatok feltétel szerinti megjelenítése
+private void showContacts(String szurofeltetel){
+        //kell-e szűrni a név alapján?
+        String selectionClause=null;
+        String[] selectionArgument=null;
+        if (szurofeltetel.equals("")) {
+		selectionClause=null;
+		selectionArgument=null;
+	}
+        else {
+		selectionClause = ContactsContract.Contacts.DISPLAY_NAME + "= ?";
+		selectionArgument = new String[]{szurofeltetel};
+        }
+        //lekérdezés where ággal
+        c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                null,
+                selectionClause, selectionArgument,
+                ContactsContract.Contacts.DISPLAY_NAME + " ASC");
+        //1. feladat - lista feltöltése
+        kontaktok = new ArrayList<>();
+        while(c.moveToNext()){
+            int index1 = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+            int index2 = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            String contactName = c.getString(index1);
+            String phoneNumber = c.getString(index2);
+            kontaktok.add("Név: "+contactName + "\n" + "Telszám: "+phoneNumber);
+        }
+        c.close();
+    }
+
+
+#################################################
+#################################################
+//SMS küldés
+//onCreate - engedélykérés
+ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.SEND_SMS},
+                123);
+telszam = findViewById(R.id.telszam);
+uzenet = findViewById(R.id.uzenet);
+
+//SMS küldés
+public void kuldesKatt(View v){
+	String uzi = uzenet.getText().toString();
+	String tsz = telszam.getText().toString();
+	SmsManager sm = SmsManager.getDefault();
+	sm.sendTextMessage(tsz, null, uzi, null, null);
+	Toast.makeText(this, "Elküldve!", Toast.LENGTH_LONG).show();
+}
+

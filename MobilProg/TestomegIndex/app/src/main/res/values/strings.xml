@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Test tömeg index kalkulátor</string>
+    <string name="your_tti">Az ön test tömeg indexe</string>
+    <string name="female_text">Nő</string>
+    <string name="male">Férfi</string>
+    <string name="gender">Nem</string>
+    <string name="age">Kor</string>
+    <string name="default_height">193</string>
+    <string name="default_weight">97</string>
+    <string name="default_age">26</string>
+    <string name="height_unit">Cm</string>
+    <string name="height">Magasság</string>
+    <string name="calculate_your_bmi">Számolás</string>
+    <string name="recalculate_your_bmi">Újraszámolás</string>
+    <string name="weight">Súly</string>
+    <string name="todo">This is not implemented yet!</string>
+</resources>

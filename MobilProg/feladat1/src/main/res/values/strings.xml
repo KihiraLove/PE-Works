@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">feladat1</string>
+    <string name="text">Feladat 1</string>
+    <string name="hint">Ide jön a szöveg</string>
+</resources>

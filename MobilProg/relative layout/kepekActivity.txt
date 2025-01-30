@@ -1,0 +1,42 @@
+    RatingBar rb1, rb2, rb3;
+    float k1, k2, k3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        rb1 = findViewById(R.id.rb1);
+        rb2 = findViewById(R.id.rb2);
+        rb3 = findViewById(R.id.rb3);
+	rb1.setOnRatingBarChangeListener(rbListener);
+	rb2.setOnRatingBarChangeListener(rbListener);
+	rb3.setOnRatingBarChangeListener(rbListener);
+    }
+    
+
+    private OnRatingBarChangeListener rbListener = new RatingBar.OnRatingBarChangeListener() {	
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                //szavazat elmentése 1-1 változóba
+		if (ratingBar.getId() == rb1.getId()) k1 = v;
+		else if (ratingBar.getId() == rb2.getId()) k2 = v;
+		else if (ratingBar.getId() == rb3.getId()) k3 = v;
+            }
+        };
+
+    //Vissza gombra kattintva egy Toastban jelenjen meg, hogy melyik a nyertes kép
+    @Override
+    public void onBackPressed() {
+        String nyert = "Nincs értékelés!";
+         if (k1 > k2 && k1 > k3)
+             nyert = "1 - "+k1+ " pont";
+        else if (k2 > k1 && k2 > k3)
+            nyert = "2 - "+k2+ " pont";
+        else if (k3 > k1 && k3 > k2)
+             nyert = "3 - "+k3+ " pont";
+        else if (k1 == 0 && k2 == 0 && k3 == 0)
+            nyert ="Nincs szavazat!";
+        else nyert = "Nem eldönthető!";
+        Toast.makeText(this, "A nyertes kép a(z): "+nyert,Toast.LENGTH_SHORT).show();
+        super.onBackPressed();
+    }

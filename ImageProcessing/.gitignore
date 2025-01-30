@@ -1,0 +1,45 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+
+#visual studio
+.vs/
+.git/
+Beadando/Beadando1/.vs/
+Beadando/Beadando1/x64/
+Beadando/Beadando1/Beadando1/x64/
+Beadando/Beadando2/.vs/
+Beadando/Beadando2/x64/
+Beadando/Beadando2/x64/
+LenaTest/.vs/
+LenaTest/x64/
